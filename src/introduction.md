@@ -65,9 +65,10 @@ ARMv6        | ✔     | ?      | ?
 ARMv7        | ✔     | ?      | ?
 POWER9       | ✔     | ?      | ?
 
-* **Nice Community**: Our Discord-chat is an active bundle of friendly people ready to help you with problems concerning _Rust_ or [`Serenity`].
+* **Nice Community**: Our [`Discord-chat`] is an active bundle of friendly people ready to help you with problems concerning [`Rust`] or [`Serenity`].
 
 [`Serenity`]: https://github.com/serenity-rs/serenity
 [`Rust`]: https://www.rust-lang.org/
 [`Rustls`]: https://github.com/ctz/rustls
 [`the official book`]: https://doc.rust-lang.org/book/
+[`Discord-chat`]: https://discord.gg/eHpnFrm
