@@ -49,7 +49,7 @@ Ranging from downloading packages, updating them, and compiling your bot, Cargo 
 
 * **Automated Sharding**: Sharding *just works* but can be done manually as well!
 
-* **Low RAM usage**: [`Serenity`]'s base barely scratches 1.6 MB! Serving up to 3000 of guilds with just 200 MB.
+* **Low RAM usage**: [`Serenity`]'s base barely scratches 1.6 MB with some bots serving 3000 guilds with just 200 MB.
 
 * **All Discord-features**: We support all REST and WebSocket features, including Voice on all platforms.
 
