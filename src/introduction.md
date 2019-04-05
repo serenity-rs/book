@@ -11,6 +11,8 @@ This book will teach you everything you need to know about building a Discord bo
 
 The library provides you all of Discord's REST-requests and even an optional bot-framework to quickly get a bot done. It allows you to easily define and configure commands.
 
+Last but not least, this book will expect you to know certain Rust fundamentals. Therefore, if you want to learn Rust, check out [`the official book`].
+Nonetheless, we will make an attempt to reference what knowledge is needed for which chapter.
 
 ## Getting Started
 * Library Dependencies
@@ -68,3 +70,4 @@ POWER9       | ✔     | ?      | ?
 [`Serenity`]: https://github.com/serenity-rs/serenity
 [`Rust`]: https://www.rust-lang.org/
 [`Rustls`]: https://github.com/ctz/rustls
+[`the official book`]: https://doc.rust-lang.org/book/
