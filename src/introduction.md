@@ -53,22 +53,26 @@ Ranging from downloading packages, updating them, and compiling your bot, Cargo 
 
 * **All Discord-features**: We support all REST and WebSocket features, including Voice on all platforms.
 
-* **No OpenSSL needed**: As of version 0.6.0, OpenSSL got replaced by a Rust TLS alternative, [`Rustls`], but OpenSSL can still be used in case you want to build for an architecture like Power9.
+* **No OpenSSL needed**: As of version 0.6.0, OpenSSL got replaced by a Rust TLS alternative, [`Rustls`], but OpenSSL can still be used in case you want to build for an architecture like POWER9.
 
 * **Cross-platform code**: [`Serenity`] in its entirety builds on:
 
-Architecture | `Linux` | `Windows` | `macOS`
----          | ---   |  ---    | ---
-x86_64       | ✔     | ✔      | ✔
-AArch64      | ✔     | ?      | ?
-ARMv6        | ✔     | ?      | ?
-ARMv7        | ✔     | ?      | ?
-POWER9       | ✔     | ?      | ?
+Architecture | `Linux`                              | `Windows` | `macOS`
+---          | ---                                  |  ---    | ---
+x86_64       | ✔                                    | ✔      | ✔
+AArch64      | ✔                                    | ?      | ?
+ARMv6        | ✔                                    | ?      | ?
+ARMv7        | ✔                                    | ?      | ?
+POWER9       | ✔<sup id="footnote_id_power9">[1](#footnote_power9)</sup> | ?      | ?
 
 * **Nice Community**: Our [`Discord-chat`] is an active bundle of friendly people ready to help you with problems concerning [`Rust`] or [`Serenity`].
+
+<b id="footnote_power9">1</b> POWER9 currently only works with the `native_tls` feature enabled because `rustls` depends on `ring` 
+which does not support POWER9. (See [ring/#389])[↩](#footnote_id_power9)
 
 [`Serenity`]: https://github.com/serenity-rs/serenity
 [`Rust`]: https://www.rust-lang.org/
 [`Rustls`]: https://github.com/ctz/rustls
 [`the official book`]: https://doc.rust-lang.org/book/
+[ring/#389]: https://github.com/briansmith/ring/issues/389
 [`Discord-chat`]: https://discord.gg/eHpnFrm
