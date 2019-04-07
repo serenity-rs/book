@@ -63,12 +63,12 @@ x86_64       | ✔                                    | ✔      | ✔
 AArch64      | ✔                                    | ?      | ?
 ARMv6        | ✔                                    | ?      | ?
 ARMv7        | ✔                                    | ?      | ?
-POWER9       | ✔<sup id="f1">[1](#footnote_1)</sup> | ?      | ?
+POWER9       | ✔<sup id="footnote_id_power9">[1](#footnote_power9)</sup> | ?      | ?
 
 * **Nice Community**: Our [`Discord-chat`] is an active bundle of friendly people ready to help you with problems concerning [`Rust`] or [`Serenity`].
 
-<b id="f1">1</b> POWER9 currently only works with the `native_tls` feature enabled because `rustls` depends on `ring` 
-which does not support POWER9. (See [ring/#389])[↩](#footnote_1)
+<b id="footnote_power9">1</b> POWER9 currently only works with the `native_tls` feature enabled because `rustls` depends on `ring` 
+which does not support POWER9. (See [ring/#389])[↩](#footnote_id_power9)
 
 [`Serenity`]: https://github.com/serenity-rs/serenity
 [`Rust`]: https://www.rust-lang.org/
