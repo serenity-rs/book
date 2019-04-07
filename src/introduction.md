@@ -57,18 +57,18 @@ Ranging from downloading packages, updating them, and compiling your bot, Cargo 
 
 * **Cross-platform code**: [`Serenity`] in its entirety builds on:
 
-Architecture | `Linux`                         | `Windows` | `macOS`
----          | ---                             |  ---    | ---
-x86_64       | ✔                               | ✔      | ✔
-AArch64      | ✔                               | ?      | ?
-ARMv6        | ✔                               | ?      | ?
-ARMv7        | ✔                               | ?      | ?
-POWER9       | ✔<sup id="a1">[1](#f1)</sup>    | ?      | ?
+Architecture | `Linux`                              | `Windows` | `macOS`
+---          | ---                                  |  ---    | ---
+x86_64       | ✔                                    | ✔      | ✔
+AArch64      | ✔                                    | ?      | ?
+ARMv6        | ✔                                    | ?      | ?
+ARMv7        | ✔                                    | ?      | ?
+POWER9       | ✔<sup id="f1">[1](#footnote_1)</sup> | ?      | ?
 
 * **Nice Community**: Our [`Discord-chat`] is an active bundle of friendly people ready to help you with problems concerning [`Rust`] or [`Serenity`].
 
 <b id="f1">1</b> POWER9 currently only works with the `native_tls` feature enabled because `rustls` depends on `ring` 
-which does not support POWER9. (See [ring/#389])[↩](#a1)
+which does not support POWER9. (See [ring/#389])[↩](#footnote_1)
 
 [`Serenity`]: https://github.com/serenity-rs/serenity
 [`Rust`]: https://www.rust-lang.org/
