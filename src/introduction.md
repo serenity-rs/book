@@ -67,8 +67,8 @@ POWER9       | ✔<sup id="a1">[1](#f1)</sup>    | ?      | ?
 
 * **Nice Community**: Our [`Discord-chat`] is an active bundle of friendly people ready to help you with problems concerning [`Rust`] or [`Serenity`].
 
-<b id="f1">1</b> POWER9 currently only works with the `native_tls` feature enabled because `ring` and thus `rustls` 
-does not support POWER9. (See [ring/#389])[↩](#a1)
+<b id="f1">1</b> POWER9 currently only works with the `native_tls` feature enabled because `rustls` depends on `ring` 
+which does not support POWER9. (See [ring/#389])[↩](#a1)
 
 [`Serenity`]: https://github.com/serenity-rs/serenity
 [`Rust`]: https://www.rust-lang.org/
