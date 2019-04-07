@@ -53,17 +53,17 @@ Ranging from downloading packages, updating them, and compiling your bot, Cargo 
 
 * **All Discord-features**: We support all REST and WebSocket features, including Voice on all platforms.
 
-* **No OpenSSL needed**: As of version 0.6.0, OpenSSL got replaced by a Rust TLS alternative, [`Rustls`], but OpenSSL can still be used in case you want to build for an architecture like Power9.
+* **No OpenSSL needed**: As of version 0.6.0, OpenSSL got replaced by a Rust TLS alternative, [`Rustls`], but OpenSSL can still be used in case you want to build for an architecture like POWER9.
 
 * **Cross-platform code**: [`Serenity`] in its entirety builds on:
 
-Architecture | `Linux` | `Windows` | `macOS`
----          | ---   |  ---    | ---
-x86_64       | ✔     | ✔      | ✔
-AArch64      | ✔     | ?      | ?
-ARMv6        | ✔     | ?      | ?
-ARMv7        | ✔     | ?      | ?
-POWER9<sup id="a1">[1](#f1)</sup>       | ✔     | ?      | ?
+Architecture | `Linux`                         | `Windows` | `macOS`
+---          | ---                             |  ---    | ---
+x86_64       | ✔                               | ✔      | ✔
+AArch64      | ✔                               | ?      | ?
+ARMv6        | ✔                               | ?      | ?
+ARMv7        | ✔                               | ?      | ?
+POWER9       | ✔<sup id="a1">[1](#f1)</sup>    | ?      | ?
 
 * **Nice Community**: Our [`Discord-chat`] is an active bundle of friendly people ready to help you with problems concerning [`Rust`] or [`Serenity`].
 
