@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/span.css">
+
 <div style="display:inline-block;width:100%">
     <img src="../images/logo.png" alt="Logo" width="84px" style="float:left;margin-right:25px;border-radius: 50%;"/>
     <h1>Serenity Discord Library</h1>
@@ -27,7 +29,7 @@ and modern language: [Rust].
 
 [Rust] runs without a garbage collector, guarantees memory safety,
 provides easy multithreading without data races,
-offers a special error-handling system without exceptions,and comes
+offers a special error-handling system without exceptions, and comes
 with _Cargo_.
 
 Cargo easily helps you start a new project and manages tons of packages
@@ -54,15 +56,16 @@ including Voice on all platforms.
 Rust TLS alternative, [Rustls], but OpenSSL can still be used in case you
  want to build for an architecture like POWER9.
 
-* **Cross-platform code**: [Serenity] in its entirety builds on:
+* **Cross-platform code**: [Serenity] in its entirety builds minimum on:
 
-Architecture | `Linux`                              | `Windows` | `macOS`
----          | ---                                  |  ---    | ---
-x86_64       | ✔                                    | ✔      | ✔
-AArch64      | ✔                                    | ?      | ?
-ARMv6        | ✔                                    | ?      | ?
-ARMv7        | ✔                                    | ?      | ?
-POWER9       | ✔<sup id="footnote_id_power9">[1](#footnote_power9)</sup> | ?      | ?
+Architecture | `Linux`                              | `Windows` | `macOS` | `FreeBSD`
+---          | ---                                  |  ---    | --- | ---
+x86_64       | ✔                                    | ✔      | ✔ | ✔
+AArch64      | ✔                                    | ?      | ? | ?
+ARMv6        | ✔                                    | ?      | ? | ?
+ARMv7        | ✔                                    | ?      | ? | ?
+POWER9       | ✔<sup id="footnote_id_power9">[1](#footnote_power9)</sup> | ?      | ? | ?
+Android      | Termux
 
 * **Nice Community**: Our [Discord-chat] is an active bundle of friendly
 people ready to help you with problems concerning [Rust] or [Serenity].
@@ -70,6 +73,25 @@ people ready to help you with problems concerning [Rust] or [Serenity].
 <b id="footnote_power9">1</b> POWER9 currently only works with the `native_tls`
 feature enabled because `rustls` depends on `ring`
 which does not support POWER9. (See [ring/#389])[↩](#footnote_id_power9)
+
+## Ferris, your helper
+
+Throughout the awaiting best-seller book hides Ferris. A crusty crab providing
+you with top-notch information. Every Ferris symbolises a certain meaning:
+
+<span class="block">
+<img hspace="10%" src="../images/curious.png" alt="Logo" width="84px"
+style="float: left;margin-right: 25px"/>
+Introduces insightful bonus information for curious
+readers.
+</span>
+
+<span class="block">
+<img hspace="10%" src="../images/dangerous.png" alt="Logo" width="84px"
+style="float: left;margin-right: 25px"/>
+Warns us about potential issues; always
+recommended to read and follow to prevent nasty surprises.
+</span>
 
 [Serenity]: https://github.com/serenity-rs/serenity
 [Rust]: https://www.rust-lang.org/

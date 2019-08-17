@@ -1,16 +1,17 @@
-## Cargo Build Features
+<link rel="stylesheet" href="../../css/span.css">
+
+# Cargo Build Features
 
 ### Required Knowledge
 [Cargo features], modules
 
 
-### About
-In this chapter we will take a look at what kind of features [Serenity] has and what they do.
-[Serenity] is quite modular, each module represents a feature and you decide if you really want to compile it.
+## About
+In this chapter we will take a look at what kind of features [Serenity] has and
+what they do.
+[Serenity] is quite modular because of its module structure.
 
-Also yes, turning a feature off reduces stops it from being compiled! Thus less time for preparing tea.
-
-To start things off, here is an overview of Serenity's features:
+Each module can be toggled by setting the respective feature. Here is the list of module related features:
 - `builder`
 - `gateway`
 - `client`
@@ -22,9 +23,11 @@ To start things off, here is an overview of Serenity's features:
 - `utils`
 - `voice`
 
-Seems to be a lot, huh?
-All of them but `voice` are enabled by default.
-The next chapters will discuss each of these modules!
+These two features will handle how `http` and `gateway` will establish their TLS:
+- `rustls_backend`
+- `native_tls_backend`
+
+Let's have a quick look on this TLS story.
 
 [Serenity]: https://github.com/serenity-rs/serenity
 [Cargo]: https://doc.rust-lang.org/cargo/

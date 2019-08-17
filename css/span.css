@@ -9,3 +9,8 @@ span.info {
     border: 1px solid #f74c00;
     font-weight: normal;
 }
+
+span.block {
+    display: flex;
+    align-items:center;
+}
