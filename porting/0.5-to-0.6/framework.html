@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Framework - serenity</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../../features/about.html"><strong aria-hidden="true">2.</strong> Internals</a></li><li><ol class="section"><li><a href="../../features/tls.html"><strong aria-hidden="true">2.1.</strong> HTTP-Backend</a></li><li><a href="../../features/client.html"><strong aria-hidden="true">2.2.</strong> WIP: Client</a></li><li><a href="../../features/context.html"><strong aria-hidden="true">2.3.</strong> Context</a></li><li><ol class="section"><li><a href="../../features/context/share-map.html"><strong aria-hidden="true">2.3.1.</strong> ShareMap</a></li><li><a href="../../features/context/shard-messenger.html"><strong aria-hidden="true">2.3.2.</strong> WIP: ShardMessenger</a></li><li><a href="../../features/context/cache.html"><strong aria-hidden="true">2.3.3.</strong> WIP: Cache</a></li><li><a href="../../features/context/http.html"><strong aria-hidden="true">2.3.4.</strong> WIP: Http</a></li></ol></li><li><a href="../../features/framework/about.html"><strong aria-hidden="true">2.4.</strong> TODO: Framework</a></li><li><a href="../../features/voice/about.html"><strong aria-hidden="true">2.5.</strong> TODO: Voice</a></li></ol></li><li><a href="../../examples/about.html"><strong aria-hidden="true">3.</strong> TODO: Examples</a></li><li><ol class="section"><li><a href="../../examples/args.html"><strong aria-hidden="true">3.1.</strong> TODO: Command Argument Processing</a></li></ol></li><li><a href="../../porting/about.html"><strong aria-hidden="true">4.</strong> Porting</a></li><li><ol class="section"><li><a href="../../porting/0.5-to-0.6/about.html"><strong aria-hidden="true">4.1.</strong> 0.5 to 0.6</a></li><li><ol class="section"><li><a href="../../porting/0.5-to-0.6/framework.html" class="active"><strong aria-hidden="true">4.1.1.</strong> Framework</a></li><li><a href="../../porting/0.5-to-0.6/http-cache.html"><strong aria-hidden="true">4.1.2.</strong> WIP: Http/Cache</a></li></ol></li></ol></li><li><a href="../../troubleshooting/about.html"><strong aria-hidden="true">5.</strong> TODO: Troubleshooting</a></li><li><ol class="section"><li><a href="../../troubleshooting/expected-token.html"><strong aria-hidden="true">5.1.</strong> TODO: Expected a token in the environment</a></li><li><a href="../../troubleshooting/invalid-permission.html"><strong aria-hidden="true">5.2.</strong> TODO: Invalid permission</a></li></ol></li><li><a href="../../appendix/about.html"><strong aria-hidden="true">6.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../appendix/command-options.html"><strong aria-hidden="true">6.1.</strong> TODO: Command Options</a></li><li><a href="../../appendix/group-options.html"><strong aria-hidden="true">6.2.</strong> Group Options</a></li><li><a href="../../appendix/help-options.html"><strong aria-hidden="true">6.3.</strong> TODO: Help Options</a></li></ol></li><li><a href="../../glossary/glossary.html"><strong aria-hidden="true">7.</strong> WIP: Glossary</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">serenity</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#lets-start-porting" id="lets-start-porting"><h1>Let's start porting!</h1></a>
+<p>We will take a look at the framework and all its lovely bits!</p>
+<p>First and foremost, Serenity utilises procedural macros hence the documentation for the framework shifted to its own crate: <a href="https://docs.rs/command_attr/0.1.4/command_attr/">command_attr</a>. This is a Rust limitation, as procedural macros cannot reside in the same crate.</p>
+<a class="header" href="#command-macro" id="command-macro"><h2>Command Macro</h2></a>
+<p>You may have commands defined like this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+command!(cat(_ctx, msg, _args) {
+    if let Err(why) = msg.channel_id.say(&quot;:cat:&quot;) {
+        println!(&quot;Error sending message: {:?}&quot;, why);
+    }
+});
+#}</code></pre></pre>
+<p><span class="caption">Listing 1: An old framework command.</span></p>
+<p>And they might have a configuration as here:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+.group(&quot;Emoji&quot;, |g| g
+    .prefixes(vec![&quot;emoji&quot;, &quot;em&quot;])
+    .desc(&quot;A group with commands providing an emoji as response.&quot;)
+    .default_cmd(bird)
+    .command(&quot;cat&quot;, |c| c
+        .desc(&quot;Sends an emoji with a cat.&quot;)
+        .batch_known_as(vec![&quot;kitty&quot;, &quot;neko&quot;])
+        .bucket(&quot;emoji&quot;)
+        .cmd(cat)
+        .required_permissions(Permissions::ADMINISTRATOR))
+    .command(&quot;dog&quot;, |c| c
+        .desc(&quot;Sends an emoji with a dog.&quot;)
+        .bucket(&quot;emoji&quot;)
+.cmd(dog)))
+#}</code></pre></pre>
+<p><span class="caption">Listing 2: An old framework configuration.</span></p>
+<p>Let's get rid of all this old cruft. Starting with your command-macro:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// To get these macros:
+use serenity::framework::standard::macros::{command, group};
+
+group!({
+    name: &quot;general&quot;,
+    options: {},
+    commands: [cat]
+});
+
+#[command]
+#[aliases(&quot;kitty&quot;, &quot;neko&quot;)]
+#[bucket = &quot;emoji&quot;]
+#[required_permissions(&quot;ADMINISTRATOR&quot;)]
+fn cat(ctx: &amp;mut Context, msg: &amp;Message) -&gt; CommandResult {
+    if let Err(why) = msg.channel_id.say(&amp;ctx, &quot;:cat:&quot;) {
+        println!(&quot;Error sending message: {:?}&quot;, why);
+    }
+
+    Ok(())
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 3: A group-macro and its command.</span></p>
+<p>In v0.6, we will no longer register groups and commands on the
+framework, but we register groups only. These groups will reference the commands. In v0.5, Serenity silently added one group containing all commands, the &quot;ungrouped&quot;-group, while v0.6 gives you the full control to do this yourself.</p>
+<p>The <code>group!</code>-macro creates a static group for us, to be precise, it creates an uppercase identifier: <code>{name}_GROUP</code>.
+Hereby note <code>{name}</code> is a placeholder  that will transform into the specified name via <code>name: &quot;general&quot;</code>, finally giving us <code>GENERAL_GROUP</code>.</p>
+<p>Adding this group to the framework is done by calling <code>group(&amp;GENERAL_GROUP)</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+StandardFramework::new()
+    .configure(|c| c
+        .with_whitespace(true)
+        .on_mention(Some(bot_id))
+        .prefix(&quot;~&quot;)
+    .group(&amp;GENERAL_GROUP)
+);
+#}</code></pre></pre>
+<p><span class="caption">Listing 4: A framework configuring a group.</span></p>
+<p>Nonetheless, this might impose a problem: If the group's name is outside of the allowed character range for Rust identifiers, what are we going to do?\</p>
+<p>TODO</p>
+<a class="header" href="#group-options" id="group-options"><h2>Group Options</h2></a>
+<p>As in listing 3, we define groups via the <code>group!</code>-command. The macro allows us to specify a group's settings.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+group!({
+    name: &quot;emoji&quot;,
+    options: {
+        prefixes: [&quot;emoji&quot;, &quot;em&quot;],
+        description: &quot;A group with commands providing an emoji as response.&quot;,
+        default_command: bird,
+    },
+    commands: [cat],
+    sub_groups: [],
+});
+#}</code></pre></pre>
+<p><span class="caption">Listing 5: A group with some options.</span></p>
+<p>The first option is <code>prefixes</code>, it sets valid prefixes before a command. In 1.5 we could use <code>emoji cat</code> or <code>em cat</code> and both will be accepted.</p>
+<p>There is a great variety of possible options exceeding the scope for this chaper, for further information read the <a href="../../appendix/group-options.html">group command appendix</a>.</p>
+<a class="header" href="#help-command" id="help-command"><h2>Help Command</h2></a>
+<p>0.6's help-system works a bit differently than before. To declare a
+help-command, we need to annotate an extra step function with <code>#[help]</code>,
+just like we did with <code>#[command]</code>.</p>
+<p>First we will create a normal function that calls <code>with_embeds</code> or <code>plain</code>
+underneath. You can imagine it as a step before the actual dispatch happens the
+function. We need to do this because we cannot annotate the actual help-function
+via attributes as they are already defined within Serenity.
+A positive side-effect is the power to clone and mutate <code>HelpOptions</code> before we call the help-functionality.
+We could randomise a field or let it depend on <code>Context</code>'s data.</p>
+<p>The performant alternative to this would be to define our own <code>plain</code> or <code>with_embeds</code> and
+mutate <code>HelpOptions</code> in them. This saves us a clone but forces us to maintain
+the help-function from now on.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[help]
+#[individual_command_tip =
+&quot;Hello! こんにちは！Hola! Bonjour! 您好!\n\
+If you want more information about a specific command, just pass the command as argument.&quot;]
+#[command_not_found_text = &quot;Could not find: `{}`.&quot;]
+#[max_levenshtein_distance(3)]
+#[indention_prefix = &quot;+&quot;]
+#[lacking_permissions = &quot;Hide&quot;]
+#[lacking_role = &quot;Nothing&quot;]
+#[wrong_channel = &quot;Strike&quot;]
+fn my_help(
+    context: &amp;mut Context,
+    msg: &amp;Message,
+    args: Args,
+    help_options: &amp;'static HelpOptions,
+    groups: &amp;[&amp;'static CommandGroup],
+    owners: HashSet&lt;UserId, impl BuildHasher&gt;
+) -&gt; CommandResult {
+    help_commands::with_embeds(context, msg, args, help_options, groups, owners)
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 6: Function dispatching to help-function
+<code>with_embeds</code>.</span></p>
+<p>As with our commands, we define options via attributes. A new addition is
+<code>indention_prefix</code>, this provides visual aid and will indent a command based
+one its nest-level. The level increases for each time we create a sub-group.<br />
+Discord supports no real indenting, not even tabs or leading
+whitespaces. If a group has a sub-group, all the sub-group's items will be
+prefixed with the symbol we decided to use. Using an empty string will lead to
+no prefix.</p>
+<p>This is not everything though, the help-command can properly
+work with <code>owners</code> now too and even incorporate whether a Serenity user-check shall be run or not.</p>
+<a class="header" href="#dispatch" id="dispatch"><h2>Dispatch</h2></a>
+<p>If a user dispatches a command, it's important to note that Serenity's framework starts with the highest group and then proceeds to the sub-groups. That means, if the command is part of a sub-group, the user will need to pass all requirements of super or parent groups. As a consequence, if the first group requires admin permission, all of its commands and sub-groups with their commands will require the given permission too.<br />
+The help-system copies this behaviour.</p>
+<a class="header" href="#checks" id="checks"><h2>Checks</h2></a>
+<a class="header" href="#return-values" id="return-values"><h3>Return Values</h3></a>
+<p>Checks used to return a bool expressing success or failure.
+In spite of that, we never knew why a check failed and this has been improved in v0.6.
+Here is an example from v0.5:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn admin_check(_: &amp;mut Context, msg: &amp;Message, _: &amp;mut Args, _: &amp;CommandOptions) -&gt; bool {
+    if let Some(member) = msg.member() {
+
+        if let Ok(permissions) = member.permissions() {
+            return permissions.administrator();
+        }
+    }
+
+    false
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 7: Admin permission framework test as v0.5 check.</span></p>
+<p>Note that checking for admin-permission is considered redundant via checks, but they perfectly portray different nuances of potential failure.<br />
+Let's take a look how we would do this in v0.6:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[check]
+#[name = &quot;Admin&quot;]
+#[check_in_help(true)]
+#[display_in_help(true)]
+fn admin_check(ctx: &amp;mut Context, message: &amp;Message, _: &amp;mut Args, _: &amp;CommandOptions) -&gt; CheckResult {
+    if let Some(member) = message.member(&amp;ctx.cache) {
+
+        if let Ok(permissions) = member.permissions(&amp;ctx.cache) {
+            return permissions.administrator().into();
+        }
+    }
+
+    CheckResult::new_user(&quot;Please use this command within a guild.&quot;)
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 8: Admin permission framework test as v0.6 check.</span></p>
+<p>This allows us to describe what kind of failure we are dealing with.
+There are five ways to return from v0.6 checks.</p>
+<ul>
+<li>A simple bool, a bool will be converted into a <code>CheckResult</code> without a message attached, we simply need to call <code>into()</code> on it.</li>
+<li><code>CheckResult::Success</code>, to express success.</li>
+<li><code>CheckResult::new_log(&quot;&quot;)</code>, allowing us to describe a general logging case.</li>
+<li><code>CheckResult::new_user(&quot;&quot;)</code>, giving us the chance to send tips to the user on failure cause's reasoning.</li>
+<li><code>CheckResult::new_unknown()</code>, in case there is nothing to be said or known about the cause.</li>
+</ul>
+<p>Returning <code>CheckResult::new_unknown()</code> is also what happens when we call <code>false.into()</code>, as there is no information to be given.</p>
+<a class="header" href="#check-macro" id="check-macro"><h3>Check Macro</h3></a>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[check]
+#[name = &quot;Admin&quot;]
+#[check_in_help(true)]
+#[display_in_help(true)]
+#}</code></pre></pre>
+<p><span class="caption">Listing 9: Admin check's macros.</span></p>
+<p>Let's process this from top to bottom. First we get to gaze at the procedural macro to mark a function as a check. Make sure that the function's signature matches how Serenity defines the <a href="https://docs.rs/serenity/0.6/serenity/framework/standard/type.CheckFunction.html">CheckFunction</a>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+type CheckFunction = fn(_: &amp;mut Context, _: &amp;Message, _: &amp;mut Args, _: &amp;CommandOptions) -&gt; CheckResult;
+#}</code></pre></pre>
+<p><span class="caption">Listing 10: Serenity's <a href="https://docs.rs/serenity/0.6/serenity/framework/standard/type.CheckFunction.html">CheckFunction</a>.</span></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../porting/0.5-to-0.6/about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../porting/0.5-to-0.6/http-cache.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../porting/0.5-to-0.6/about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../porting/0.5-to-0.6/http-cache.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

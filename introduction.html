@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - serenity</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="introduction.html" class="active"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="features/about.html"><strong aria-hidden="true">2.</strong> Internals</a></li><li><ol class="section"><li><a href="features/tls.html"><strong aria-hidden="true">2.1.</strong> HTTP-Backend</a></li><li><a href="features/client.html"><strong aria-hidden="true">2.2.</strong> WIP: Client</a></li><li><a href="features/context.html"><strong aria-hidden="true">2.3.</strong> Context</a></li><li><ol class="section"><li><a href="features/context/share-map.html"><strong aria-hidden="true">2.3.1.</strong> ShareMap</a></li><li><a href="features/context/shard-messenger.html"><strong aria-hidden="true">2.3.2.</strong> WIP: ShardMessenger</a></li><li><a href="features/context/cache.html"><strong aria-hidden="true">2.3.3.</strong> WIP: Cache</a></li><li><a href="features/context/http.html"><strong aria-hidden="true">2.3.4.</strong> WIP: Http</a></li></ol></li><li><a href="features/framework/about.html"><strong aria-hidden="true">2.4.</strong> TODO: Framework</a></li><li><a href="features/voice/about.html"><strong aria-hidden="true">2.5.</strong> TODO: Voice</a></li></ol></li><li><a href="examples/about.html"><strong aria-hidden="true">3.</strong> TODO: Examples</a></li><li><ol class="section"><li><a href="examples/args.html"><strong aria-hidden="true">3.1.</strong> TODO: Command Argument Processing</a></li></ol></li><li><a href="porting/about.html"><strong aria-hidden="true">4.</strong> Porting</a></li><li><ol class="section"><li><a href="porting/0.5-to-0.6/about.html"><strong aria-hidden="true">4.1.</strong> 0.5 to 0.6</a></li><li><ol class="section"><li><a href="porting/0.5-to-0.6/framework.html"><strong aria-hidden="true">4.1.1.</strong> Framework</a></li><li><a href="porting/0.5-to-0.6/http-cache.html"><strong aria-hidden="true">4.1.2.</strong> WIP: Http/Cache</a></li></ol></li></ol></li><li><a href="troubleshooting/about.html"><strong aria-hidden="true">5.</strong> TODO: Troubleshooting</a></li><li><ol class="section"><li><a href="troubleshooting/expected-token.html"><strong aria-hidden="true">5.1.</strong> TODO: Expected a token in the environment</a></li><li><a href="troubleshooting/invalid-permission.html"><strong aria-hidden="true">5.2.</strong> TODO: Invalid permission</a></li></ol></li><li><a href="appendix/about.html"><strong aria-hidden="true">6.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/command-options.html"><strong aria-hidden="true">6.1.</strong> TODO: Command Options</a></li><li><a href="appendix/group-options.html"><strong aria-hidden="true">6.2.</strong> Group Options</a></li><li><a href="appendix/help-options.html"><strong aria-hidden="true">6.3.</strong> TODO: Help Options</a></li></ol></li><li><a href="glossary/glossary.html"><strong aria-hidden="true">7.</strong> WIP: Glossary</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">serenity</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><link rel="stylesheet" href="../css/span.css"></p>
+<div style="display:inline-block;width:100%">
+    <img src="../images/logo.png" alt="Logo" width="84px" style="float:left;margin-right:25px;border-radius: 50%;"/>
+    <a class="header" href="#serenity-discord-library" id="serenity-discord-library"><h1>Serenity Discord Library</h1></a>
+</div>
+<a class="header" href="#introduction" id="introduction"><h2>Introduction</h2></a>
+<p>Glad you made it here, let's get started!</p>
+<p>This book will teach you everything you need to know about building a Discord
+bot with <a href="https://github.com/serenity-rs/serenity">Serenity</a>, a library written in <a href="https://www.rust-lang.org/">Rust</a>. A fast and safe systems
+programming language with a great package manager, Cargo.</p>
+<p>The library provides you all of Discord's REST-requests and even an optional
+bot-framework to quickly get a bot done. It allows you to easily define and
+configure commands.</p>
+<p>Last but not least, this book will expect you to know certain Rust fundamentals.
+Therefore, if you want to learn Rust, check out <a href="https://doc.rust-lang.org/book/">the official book</a>.
+Nonetheless, we will reference what's <em>good to know</em> at the beginning of each
+chapter.</p>
+<a class="header" href="#why-serenity" id="why-serenity"><h2>Why Serenity?</h2></a>
+<p>First of all, <a href="https://github.com/serenity-rs/serenity">Serenity</a> is written in a safe, fast,
+and modern language: <a href="https://www.rust-lang.org/">Rust</a>.</p>
+<p><a href="https://www.rust-lang.org/">Rust</a> runs without a garbage collector, guarantees memory safety,
+provides easy multithreading without data races,
+offers a special error-handling system without exceptions, and comes
+with <em>Cargo</em>.</p>
+<p>Cargo easily helps you start a new project and manages tons of packages
+to extend your bot with a database, HTTP-client, file-parsers, ... on a whim.
+Ranging from downloading packages, updating them, and compiling your bot,
+Cargo got you covered.</p>
+<p><a href="https://github.com/serenity-rs/serenity">Serenity</a> itself offers you:</p>
+<ul>
+<li>
+<p><strong>Caching</strong>: Avoid issuing HTTP-calls, compare old with edited messages,
+and check all the data your bot knows about. The cache is, as many parts,
+optional.</p>
+</li>
+<li>
+<p><strong>Automated Sharding</strong>: Sharding <em>just works</em> but can be done manually as
+well!</p>
+</li>
+<li>
+<p><strong>Low RAM usage</strong>: <a href="https://github.com/serenity-rs/serenity">Serenity</a>'s base barely scratches 1.6 MB with some bots
+serving 3000 guilds with just 200 MB.</p>
+</li>
+<li>
+<p><strong>All Discord-features</strong>: We support all REST and WebSocket features,
+including Voice on all platforms.</p>
+</li>
+<li>
+<p><strong>No OpenSSL needed</strong>: As of version 0.6.0, OpenSSL got replaced by a
+Rust TLS alternative, <a href="https://github.com/ctz/rustls">Rustls</a>, but OpenSSL can still be used in case you
+want to build for an architecture like POWER9.</p>
+</li>
+<li>
+<p><strong>Cross-platform code</strong>: <a href="https://github.com/serenity-rs/serenity">Serenity</a> in its entirety builds minimum on:</p>
+</li>
+</ul>
+<table><thead><tr><th>Architecture </th><th> <code>Linux</code>                              </th><th> <code>Windows</code> </th><th> <code>macOS</code> </th><th> <code>FreeBSD</code></th></tr></thead><tbody>
+<tr><td>x86_64       </td><td> ✔                                    </td><td> ✔      </td><td> ✔ </td><td> ✔</td></tr>
+<tr><td>AArch64      </td><td> ✔                                    </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>ARMv6        </td><td> ✔                                    </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>ARMv7        </td><td> ✔                                    </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>POWER9       </td><td> ✔<sup id="footnote_id_power9"><a href="#footnote_power9">1</a></sup> </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>Android      </td><td> Termux</td></tr>
+</tbody></table>
+<ul>
+<li><strong>Nice Community</strong>: Our <a href="https://discord.gg/eHpnFrm">Discord-chat</a> is an active bundle of friendly
+people ready to help you with problems concerning <a href="https://www.rust-lang.org/">Rust</a> or <a href="https://github.com/serenity-rs/serenity">Serenity</a>.</li>
+</ul>
+<p><b id="footnote_power9">1</b> POWER9 currently only works with the <code>native_tls</code>
+feature enabled because <code>rustls</code> depends on <code>ring</code>
+which does not support POWER9. (See <a href="https://github.com/briansmith/ring/issues/389">ring/#389</a>)<a href="#footnote_id_power9">↩</a></p>
+<a class="header" href="#ferris-your-helper" id="ferris-your-helper"><h2>Ferris, your helper</h2></a>
+<p>Throughout the awaiting best-seller book hides Ferris. A crusty crab providing
+you with top-notch information. Every Ferris symbolises a certain meaning:</p>
+<p><span class="block">
+<img hspace="10%" src="../images/curious.png" alt="Logo" width="84px"
+style="float: left;margin-right: 25px"/>
+Introduces insightful bonus information for curious
+readers.
+</span></p>
+<p><span class="block">
+<img hspace="10%" src="../images/dangerous.png" alt="Logo" width="84px"
+style="float: left;margin-right: 25px"/>
+Warns us about potential issues; always
+recommended to read and follow to prevent nasty surprises.
+</span></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="features/about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a href="features/about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

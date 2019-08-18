@@ -1,0 +1,977 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>serenity</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="features/about.html"><strong aria-hidden="true">2.</strong> Internals</a></li><li><ol class="section"><li><a href="features/tls.html"><strong aria-hidden="true">2.1.</strong> HTTP-Backend</a></li><li><a href="features/client.html"><strong aria-hidden="true">2.2.</strong> WIP: Client</a></li><li><a href="features/context.html"><strong aria-hidden="true">2.3.</strong> Context</a></li><li><ol class="section"><li><a href="features/context/share-map.html"><strong aria-hidden="true">2.3.1.</strong> ShareMap</a></li><li><a href="features/context/shard-messenger.html"><strong aria-hidden="true">2.3.2.</strong> WIP: ShardMessenger</a></li><li><a href="features/context/cache.html"><strong aria-hidden="true">2.3.3.</strong> WIP: Cache</a></li><li><a href="features/context/http.html"><strong aria-hidden="true">2.3.4.</strong> WIP: Http</a></li></ol></li><li><a href="features/framework/about.html"><strong aria-hidden="true">2.4.</strong> TODO: Framework</a></li><li><a href="features/voice/about.html"><strong aria-hidden="true">2.5.</strong> TODO: Voice</a></li></ol></li><li><a href="examples/about.html"><strong aria-hidden="true">3.</strong> TODO: Examples</a></li><li><ol class="section"><li><a href="examples/args.html"><strong aria-hidden="true">3.1.</strong> TODO: Command Argument Processing</a></li></ol></li><li><a href="porting/about.html"><strong aria-hidden="true">4.</strong> Porting</a></li><li><ol class="section"><li><a href="porting/0.5-to-0.6/about.html"><strong aria-hidden="true">4.1.</strong> 0.5 to 0.6</a></li><li><ol class="section"><li><a href="porting/0.5-to-0.6/framework.html"><strong aria-hidden="true">4.1.1.</strong> Framework</a></li><li><a href="porting/0.5-to-0.6/http-cache.html"><strong aria-hidden="true">4.1.2.</strong> WIP: Http/Cache</a></li></ol></li></ol></li><li><a href="troubleshooting/about.html"><strong aria-hidden="true">5.</strong> TODO: Troubleshooting</a></li><li><ol class="section"><li><a href="troubleshooting/expected-token.html"><strong aria-hidden="true">5.1.</strong> TODO: Expected a token in the environment</a></li><li><a href="troubleshooting/invalid-permission.html"><strong aria-hidden="true">5.2.</strong> TODO: Invalid permission</a></li></ol></li><li><a href="appendix/about.html"><strong aria-hidden="true">6.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/command-options.html"><strong aria-hidden="true">6.1.</strong> TODO: Command Options</a></li><li><a href="appendix/group-options.html"><strong aria-hidden="true">6.2.</strong> Group Options</a></li><li><a href="appendix/help-options.html"><strong aria-hidden="true">6.3.</strong> TODO: Help Options</a></li></ol></li><li><a href="glossary/glossary.html"><strong aria-hidden="true">7.</strong> WIP: Glossary</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">serenity</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><link rel="stylesheet" href="../css/span.css"></p>
+<div style="display:inline-block;width:100%">
+    <img src="../images/logo.png" alt="Logo" width="84px" style="float:left;margin-right:25px;border-radius: 50%;"/>
+    <a class="header" href="#serenity-discord-library" id="serenity-discord-library"><h1>Serenity Discord Library</h1></a>
+</div>
+<a class="header" href="#introduction" id="introduction"><h2>Introduction</h2></a>
+<p>Glad you made it here, let's get started!</p>
+<p>This book will teach you everything you need to know about building a Discord
+bot with <a href="https://github.com/serenity-rs/serenity">Serenity</a>, a library written in <a href="https://www.rust-lang.org/">Rust</a>. A fast and safe systems
+programming language with a great package manager, Cargo.</p>
+<p>The library provides you all of Discord's REST-requests and even an optional
+bot-framework to quickly get a bot done. It allows you to easily define and
+configure commands.</p>
+<p>Last but not least, this book will expect you to know certain Rust fundamentals.
+Therefore, if you want to learn Rust, check out <a href="https://doc.rust-lang.org/book/">the official book</a>.
+Nonetheless, we will reference what's <em>good to know</em> at the beginning of each
+chapter.</p>
+<a class="header" href="#why-serenity" id="why-serenity"><h2>Why Serenity?</h2></a>
+<p>First of all, <a href="https://github.com/serenity-rs/serenity">Serenity</a> is written in a safe, fast,
+and modern language: <a href="https://www.rust-lang.org/">Rust</a>.</p>
+<p><a href="https://www.rust-lang.org/">Rust</a> runs without a garbage collector, guarantees memory safety,
+provides easy multithreading without data races,
+offers a special error-handling system without exceptions, and comes
+with <em>Cargo</em>.</p>
+<p>Cargo easily helps you start a new project and manages tons of packages
+to extend your bot with a database, HTTP-client, file-parsers, ... on a whim.
+Ranging from downloading packages, updating them, and compiling your bot,
+Cargo got you covered.</p>
+<p><a href="https://github.com/serenity-rs/serenity">Serenity</a> itself offers you:</p>
+<ul>
+<li>
+<p><strong>Caching</strong>: Avoid issuing HTTP-calls, compare old with edited messages,
+and check all the data your bot knows about. The cache is, as many parts,
+optional.</p>
+</li>
+<li>
+<p><strong>Automated Sharding</strong>: Sharding <em>just works</em> but can be done manually as
+well!</p>
+</li>
+<li>
+<p><strong>Low RAM usage</strong>: <a href="https://github.com/serenity-rs/serenity">Serenity</a>'s base barely scratches 1.6 MB with some bots
+serving 3000 guilds with just 200 MB.</p>
+</li>
+<li>
+<p><strong>All Discord-features</strong>: We support all REST and WebSocket features,
+including Voice on all platforms.</p>
+</li>
+<li>
+<p><strong>No OpenSSL needed</strong>: As of version 0.6.0, OpenSSL got replaced by a
+Rust TLS alternative, <a href="https://github.com/ctz/rustls">Rustls</a>, but OpenSSL can still be used in case you
+want to build for an architecture like POWER9.</p>
+</li>
+<li>
+<p><strong>Cross-platform code</strong>: <a href="https://github.com/serenity-rs/serenity">Serenity</a> in its entirety builds minimum on:</p>
+</li>
+</ul>
+<table><thead><tr><th>Architecture </th><th> <code>Linux</code>                              </th><th> <code>Windows</code> </th><th> <code>macOS</code> </th><th> <code>FreeBSD</code></th></tr></thead><tbody>
+<tr><td>x86_64       </td><td> ✔                                    </td><td> ✔      </td><td> ✔ </td><td> ✔</td></tr>
+<tr><td>AArch64      </td><td> ✔                                    </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>ARMv6        </td><td> ✔                                    </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>ARMv7        </td><td> ✔                                    </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>POWER9       </td><td> ✔<sup id="footnote_id_power9"><a href="#footnote_power9">1</a></sup> </td><td> ?      </td><td> ? </td><td> ?</td></tr>
+<tr><td>Android      </td><td> Termux</td></tr>
+</tbody></table>
+<ul>
+<li><strong>Nice Community</strong>: Our <a href="https://discord.gg/eHpnFrm">Discord-chat</a> is an active bundle of friendly
+people ready to help you with problems concerning <a href="https://www.rust-lang.org/">Rust</a> or <a href="https://github.com/serenity-rs/serenity">Serenity</a>.</li>
+</ul>
+<p><b id="footnote_power9">1</b> POWER9 currently only works with the <code>native_tls</code>
+feature enabled because <code>rustls</code> depends on <code>ring</code>
+which does not support POWER9. (See <a href="https://github.com/briansmith/ring/issues/389">ring/#389</a>)<a href="#footnote_id_power9">↩</a></p>
+<a class="header" href="#ferris-your-helper" id="ferris-your-helper"><h2>Ferris, your helper</h2></a>
+<p>Throughout the awaiting best-seller book hides Ferris. A crusty crab providing
+you with top-notch information. Every Ferris symbolises a certain meaning:</p>
+<p><span class="block">
+<img hspace="10%" src="../images/curious.png" alt="Logo" width="84px"
+style="float: left;margin-right: 25px"/>
+Introduces insightful bonus information for curious
+readers.
+</span></p>
+<p><span class="block">
+<img hspace="10%" src="../images/dangerous.png" alt="Logo" width="84px"
+style="float: left;margin-right: 25px"/>
+Warns us about potential issues; always
+recommended to read and follow to prevent nasty surprises.
+</span></p>
+<a class="header" href="#serenitys-internals" id="serenitys-internals"><h1>Serenity's Internals</h1></a>
+<p>Serenity is a big beast composed of multiple modules.
+Each module focuses on a different aspect of bot-development and the Discord-API.<br />
+There is a gateway and an HTTP-module, but also a command-framework-module.</p>
+<p>This collection of chapters aims to explain these different modules in-depth.</p>
+<a class="header" href="#other-resources" id="other-resources"><h1>Other resources</h1></a>
+<p>You may be looking for other resources:</p>
+<ul>
+<li><a href="features/../porting/0.5-to-0.6/about.html">Porting from v0.5 to 0.6.</a></li>
+<li>[Tutorial to learn Serenity by example.]</li>
+<li><a href="features/../troubleshooting/about.html">Troubleshooting common issues.</a></li>
+<li><a href="features/../glossary/about.html">Glossary to special terms used in Serenity.</a></li>
+<li><a href="features/../appendix/about.html">Appendix on all the command-macros.</a></li>
+</ul>
+<p><link rel="stylesheet" href="../../css/span.css"></p>
+<a class="header" href="#transport-security-layer-tls" id="transport-security-layer-tls"><h1>Transport Security Layer (TLS)</h1></a>
+<p>The communication with Discord must be encrypted via TLS. Serenity supports two ways to get this job done and we need to pick <em>one</em>.
+If we forget the pick one, Serenity will spit out a compile-error.</p>
+<p>The <code>rustls_backend</code> is our new TLS implementation in pure Rust, but it does not
+support platforms like POWER9 yet.<br />
+Meanwhile, <code>native_tls_backend</code> is our legacy TLS and uses SChannel on Windows, Secure Transport on macOS, and OpenSSL on other platforms.<br />
+OpenSSL is a C-library and may cause some headache if you want to cross-compile it.</p>
+<p>The <code>rustls_backend</code> is enabled by default, it also allocates less memory. If we want all default features but <code>native_tls</code>, we can turn
+default features off and use <code>native_default_features</code>.</p>
+<pre><code class="language-toml">[dependencies.serenity]
+default-features = false
+features = [&quot;native_default_features&quot;]
+</code></pre>
+<p><span class="info">
+<img hspace="10%" src="../../images/dangerous.png" alt="Logo" width="84px"
+style="float: right;margin-right: 25px"/>
+If we forget to turn off <code>default-features</code> we might hit bedrock. Cargo's features work
+additively and will therefore pull in the default features <em>and</em>  <code>native_tls_backend</code>, ending up with both backends enabled.
+<br>
+As a conseqeuence, both crates will be built. However if our target system is unable to build
+native-tls or Rustls, we will fail building Serenity too.
+<br>
+Final note: Having both features enabled is uncharted territory and thus undefined behaviour. It's tolerated to allow potential edge cases to compile.
+</span></p>
+<a class="header" href="#wip-client" id="wip-client"><h1>WIP: Client</h1></a>
+<p><link rel="stylesheet" href="../../css/span.css"></p>
+<a class="header" href="#context" id="context"><h1>Context</h1></a>
+<a class="header" href="#quick-overview" id="quick-overview"><h3>Quick overview:</h3></a>
+<ul>
+<li>Gives Cache and HTTP-client access.</li>
+<li>Can store your custom services, e.g. a database.</li>
+<li>Can communicate with current shard.</li>
+<li>Is passed to every section of Serenity.</li>
+</ul>
+<a class="header" href="#about" id="about"><h2>About</h2></a>
+<p>The context is a very import part of Serenity, but what exactly is it?</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Context {
+    pub data: Arc&lt;RwLock&lt;ShareMap&gt;&gt;,
+
+    pub shard: ShardMessenger,
+
+    pub shard_id: u64,
+
+    #[cfg(feature = &quot;cache&quot;)]
+    pub cache: CacheRwLock,
+
+    #[cfg(feature = &quot;http&quot;)]
+    pub http: Arc&lt;Http&gt;,
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 2.3.1: Context's definition.</span></p>
+<p>This is a lot to chew at once, that's why the next chapters will explain every
+field in-depth. The general idea is to provide one struct containing useful items around Serenity. One functionality is to issue a REST-request to Discord via <code>http</code>, or
+fishing for messages in the <code>cache</code>.</p>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#data-the-sharemap" id="data-the-sharemap"><h1>Data, the ShareMap</h1></a>
+<a class="header" href="#good-to-know" id="good-to-know"><h3>Good to know:</h3></a>
+<p><a href="https://doc.rust-lang.org/std/sync/struct.Arc.html">Arc</a>, <a href="https://doc.rust-lang.org/std/sync/struct.RwLock.html">RwLock</a>, <a href="https://doc.rust-lang.org/book/ch10-02-traits.html">Traits</a>, <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">HashMap</a></p>
+<a class="header" href="#about-1" id="about-1"><h3>About</h3></a>
+<p>The first field is the <code>data</code>-field, wrapping a <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> inside an
+atomic reference counter (<a href="https://doc.rust-lang.org/std/sync/struct.Arc.html">Arc</a>) and a read-write lock (<a href="https://doc.rust-lang.org/std/sync/struct.RwLock.html">RwLock</a>).</p>
+<p>Serenity provides a <code>Context</code> to every possible place you can imagine, we will
+always be able to access it. You may or may not wonder:
+&quot;Isn't this a great way to share my own types across Serenity?&quot;, and yes,
+you are right! The <code>data</code>-field can store everything your wildest dreams desire:
+A database-connection, a command-counter, chat-game-session-handler,
+weather-API, ..., and so many more wonderful things!
+There is no limit to this magic!</p>
+<a class="header" href="#use" id="use"><h3>Use</h3></a>
+<p>Under the hood, <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> is actually a <a href="https://docs.rs/typemap/0.3.3/typemap/struct.TypeMap.html">TypeMap</a> with set generics,
+saving us from to doing the work. A <a href="https://docs.rs/typemap/0.3.3/typemap/struct.TypeMap.html">TypeMap</a> is a special kind of <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">HashMap</a>
+where keys can be <em>different</em> types, thus allowing multiple types of
+keys instead of just one.</p>
+<p><span class="info">
+<img hspace="10%" src="../../../images/curious.png" alt="Logo" width="84px"
+style="float: right;margin-right: 25px"/>
+If you did not work with <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">HashMap</a>s that much yet or the <em>multiple keys</em>
+caused more confusion than it solved, then let's get practical for a second.<br>
+As they say, <em>a <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">HashMap</a> is worth a thousand words</em>: <code>HashMap&lt;String, u64&gt;</code>
+is a <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">HashMap</a> that accepts <code>String</code>s as keys to access <code>u64</code>s.
+Hence <code>String</code>s being our only allowed keys to grab <code>u64</code>s.<br>
+In contrast, <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> enables us to use Rust-types as keys instead of just
+<code>String</code>s to access different types instead of <code>u64</code>s only.
+</span></p>
+<p>In order to turn a type into a key, we need to implement the
+<a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/trait.TypeMapKey.html">TypeMapKey</a>-trait for it.</p>
+<pre><code class="language-rust ignore">1  struct CommandCounterKey;
+2
+3  impl TypeMapKey for CommandCounterKey {
+4      type Value = HashMap&lt;String, u64&gt;;
+5  }
+</code></pre>
+<p><span class="caption">Listing 1.2: Implementing <code>CommandCounterKey</code>.</span></p>
+<p>In this example, we define a <code>CommandCounterKey</code>-type and by implementing
+<a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/trait.TypeMapKey.html">TypeMapKey</a>-trait for <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a>.
+Now we need to tell <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> what type we want to access,
+luckily line 4 helps us: We define a type-alias for <code>HashMap&lt;String, u64&gt;</code>
+named <code>Value</code>.
+This is an associated type needed by the <a href="https://docs.rs/typemap/0.3.3/typemap/trait.Key.html">Key</a>-trait.</p>
+<p><span class="info">
+<img hspace="10%" src="../../../images/curious.png" alt="Logo" width="84px"
+style="float: right;margin-right: 25px"/>
+If you really are curious what happens behind the curtains, looking at
+<a href="https://docs.rs/typemap/0.3.3/typemap/trait.Key.html">Key</a>'s source might be worth it or reading about
+<a href="https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types" title="associated types">associated types here</a>.
+</span></p>
+<p>Now let's see how we can construct a <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> and put our key-implementation
+to use!</p>
+<pre><code class="language-rust ignore">1  let mut client = Client::new(&amp;token, Handler).expect(&quot;Err creating client&quot;);
+2
+3  let mut data = client.data.write();
+4  data.insert::&lt;CommandCounterKey&gt;(HashMap::default());
+</code></pre>
+<p><span class="caption">Listing 1.3: Inserting value for <code>CommandCounterKey</code>.</span></p>
+<p>This is pretty straightforward. The [Client] will dispatch [Context] to all
+the different places. So all we need to do is inserting our map-value and
+somehow specify the key.<br />
+Well, not so fast! As we can see in line 3, we are calling <code>write</code> on <code>data</code>
+and bind it to a mutable variable. The reason is simple: Serenity is
+multithreaded and this <a href="https://doc.rust-lang.org/std/sync/struct.RwLock.html">RwLock</a> ensures that only one thread can mutate
+our <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> at once.<br />
+There is one last thing left: Putting our inserted item to use. Well, we can do
+this in every place inside Serenity, we will always find a [Context] being
+passed to us.\</p>
+<pre><code class="language-rust ignore">1  .before(|context, msg, command_name| {
+2
+3     let mut data = context.data.write();
+4     let counter = data.get_mut::&lt;CommandCounterKey&gt;()
+5          .expect(&quot;Expected CommandCounter in ShareMap.&quot;);
+6     let entry = counter.entry(command_name.to_string()).or_insert(0);
+7     *entry += 1;
+8
+9     true
+10 })
+</code></pre>
+<p><span class="caption">Listing 1.4: Using <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> before a command gets
+executed.</span></p>
+<p>Here we access the <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> with our <code>CommandCounterKey</code> and bind the
+value on <code>counter</code> in line 4.<br />
+Furthermore, the line shows us that we need to pass the key-type as
+generic-parametre on <code>get_mut</code>: <code>data.get_mut::&lt;CommandCounterKey&gt;()</code>.
+You might notice the <code>expect</code> in line 5, yes, this will panic if you forgot
+to add a value for <code>CommandCounterKey</code>, to prevent this make sure you did as
+1.3 has shown.<br />
+In line 6 we simply check if a command name has been used yet
+and if not simply add it entry with the counter set to 0, as line 7 will
+increment this counter already. In case you are wondering about line 9,
+returning <code>true</code> continues the dispatch-process.</p>
+<a class="header" href="#summary" id="summary"><h3>Summary</h3></a>
+<p>To sum things up, <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> is <em>the</em> way to share your own dependencies
+across Serenity.<br />
+Initially, before starting the bot, we insert values just like in 1.3 and access
+them wherever we want as shown in 1.4.<br />
+Last but not least, it's important to keep the lock on the <a href="https://docs.rs/serenity/0.6.0-rc.0/serenity/prelude/type.ShareMap.html">ShareMap</a> as
+short as possible, so that other executing threads do not need to wait too long.</p>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#shard-messenger" id="shard-messenger"><h1>Shard Messenger</h1></a>
+<a class="header" href="#good-to-know-1" id="good-to-know-1"><h3>Good to know:</h3></a>
+<p><a href="features/context/../../glossary/glossary.html#">Sharding</a></p>
+<a class="header" href="#quick-overview-1" id="quick-overview-1"><h4>Quick overview:</h4></a>
+<ul>
+<li>Enables to handle current gateway-connection.</li>
+</ul>
+<a class="header" href="#type-documentation" id="type-documentation"><h3>Type Documentation</h3></a>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Context {
+    pub data: Arc&lt;RwLock&lt;ShareMap&gt;&gt;,
+
+    pub shard: ShardMessenger,
+
+    pub shard_id: u64,
+
+    #[cfg(feature = &quot;cache&quot;)]
+    pub cache: CacheRwLock,
+
+    #[cfg(feature = &quot;http&quot;)]
+    pub http: Arc&lt;Http&gt;,
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 1.1: Context's definition.</span></p>
+<a class="header" href="#shard-messenger-1" id="shard-messenger-1"><h3>Shard Messenger</h3></a>
+<p>Right after <code>data</code> follows the <code>shard</code>-field, a <a href="https://docs.rs/serenity/0.6.0-rc.1/serenity/client/bridge/gateway/struct.ShardMessenger.html">ShardMessenger</a> communicates
+with the related shard. To understand what <em>related</em> means, we need to grasp the following concept: When Serenity dispatches a command, we do not know on which
+shard we are operating on. Luckily [Context] got us covered and provides us
+with the needed information. It gives us the <a href="https://docs.rs/serenity/0.6.0-rc.1/serenity/client/bridge/gateway/struct.ShardMessenger.html">ShardMessenger</a> in charge of
+communicating with the right shard. Hense if we get an event for shard 5,
+we would be provided with the messenger for shard 5 as well.</p>
+<p><span class="info">
+<img hspace="10%" src="../../../images/curious.png" alt="Logo" width="84px"
+style="float: right;margin-right: 25px"/>
+If you do not understand what sharding is, the <a href="https://docs.rs/serenity/0.6.0-rc.1/serenity/client/bridge/gateway/struct.ShardMessenger.html">ShardMessenger</a> might seem very confusing.<br>
+One single shard can be simplified to a connection to Discord, each connection receives events from Discord.<br>
+So, if we have two shards each will receive events for around one half of all
+guilds. As a result, if we have 100 shards the guilds will distributed across those 100 shards.<br>
+Moreover, Discord requires a maximum amount of 2,500 guilds per shard,
+but fear not, Serenity handles this automatically.
+</span></p>
+<a class="header" href="#shard-id" id="shard-id"><h3>Shard Id</h3></a>
+<p>The third field on [Context], <code>shard_id</code>, is a plain number refering to the shard's ID. Thus it actually
+just informs us on which shard the current thread is operating on. As the name
+[Context] somewhat conveys, it provides us information about the current
+circumstances, contextual background, just like a shard number would be.</p>
+<a class="header" href="#cache" id="cache"><h1>Cache</h1></a>
+<a class="header" href="#quick-overview-2" id="quick-overview-2"><h3>Quick overview:</h3></a>
+<ul>
+<li>Stores data received from Discord.</li>
+<li>Cache is shared across all shards using RwLock.</li>
+<li>Can be accessed via [Context-struct].</li>
+<li>Serenity may check cache before issuing REST-requests.</li>
+<li>Increases needed memory.</li>
+</ul>
+<a class="header" href="#details" id="details"><h2>Details:</h2></a>
+<p>The <code>cache</code>-feature enables caching. A cache keeps all data received via REST/WebSockets and is shared across all shards. Moreover, the cache will know about all guilds your bot is in, but also about all users, roles, emojis, and other useful data.</p>
+<p>If we want to access the cache, we will need a Context-struct.</p>
+<p>Now imagine a function would perform a REST-request: Enabling the cache will avert this and your bot will check the cache first! Especially when you have bot-commands that would fetch a lot of guild-data, with the cache enabled,
+The exception to this behaviour are functions inside the <code>http::raw</code>-module because they explicitly send REST-requests. That means, if you use these functions, the cache won't be checked.</p>
+<p>If your bot is running on a low RAM machine you should consider whether this feature gives you enough benefits to reason the potential RAM overhead. A cache will grow and rarely gets rid of its entries.</p>
+<a class="header" href="#http" id="http"><h1>Http</h1></a>
+<a class="header" href="#required-knowledge" id="required-knowledge"><h3>Required Knowledge</h3></a>
+<p>Traits, <code>AsRef</code>, HashMap, crates, newtype-pattern, orphan-rule</p>
+<a class="header" href="#cacherwlock" id="cacherwlock"><h2>CacheRwLock</h2></a>
+<p>While a context has an <code>Http</code>-field it also has a mysteriously named field called <code>CacheRwLock</code>.
+To keep it simple: It allows us to indirectly implement <code>AsRef</code> for <code>Arc&lt;RwLock&lt;Cache&gt;&gt;</code>.</p>
+<p>If you want a bit more in-depth explanation: The orphan-rule dictates that traits can only be implemented for stdlib/core and your own crate only.
+<code>CacheRwLock</code> is a newtype wrapping around <code>Arc&lt;Rwlock&lt;Cache&gt;&gt;</code> but also dereferencing to it via the <code>DerefMut</code>-trait and therefore keeping the same functionality. One could view it as a <em>neworphantype</em>, as it, primarily, satisfies the orpan-rule by creating a newtype with the same API as its underlying type.</p>
+<a class="header" href="#passing-cache-and-http-around" id="passing-cache-and-http-around"><h2>Passing Cache and HTTP around</h2></a>
+<p>Some functions may require you to pass <code>AsRef&lt;Http&gt;</code> or <code>AsRef&lt;CacheRwLock&gt;</code>, these functions will use the cache or HTTP-client to perform their operations.<br />
+The reason these functions accept <code>AsRef</code>, instead of the actual type, is to accept <code>Context</code> as well.<br />
+On the one side, <code>AsRef&lt;Http&gt;</code> is implemented for <code>Http</code>, so passing <code>&amp;context.http</code> would succeed, but instead we can simplify this to <code>&amp;context</code>.
+On the other side, the same applies to <code>AsRef&lt;CacheRwLock&gt;</code> and <code>Cache</code>/<code>Context</code>: Instead of passing <code>&amp;context.cache</code>, we simply pass <code>&amp;context</code>.</p>
+<a class="header" href="#the-command-framework" id="the-command-framework"><h1>The Command Framework</h1></a>
+<a class="header" href="#quick-overview-3" id="quick-overview-3"><h3>Quick overview:</h3></a>
+<ul>
+<li>A Serenity framework intends to handle commands.</li>
+<li>Since the <a href="https://docs.rs/serenity/0.6/serenity/framework/trait.Framework.html">Framework</a> is a trait, you can easily create your own.</li>
+<li>There is a <a href="https://docs.rs/serenity/0.6/serenity/framework/standard/struct.StandardFramework.html">StandardFramework</a>-implementation of the trait, providing a solution for many common needs.</li>
+</ul>
+<a class="header" href="#about-2" id="about-2"><h2>About</h2></a>
+<p>First of all, the framework is a trait</p>
+<p>The command framework takes received messages and checks if they meet your set requirements. If everything is okay, the framework will dispatch the respective command.</p>
+<p>Moreover, the framework is a trait that can be implemented by anyone.
+However doing that can be a bit of work, that's why Serenity offers the standard framework!</p>
+<p>It entails commands:</p>
+<ul>
+<li>groups</li>
+<li>sub-groups</li>
+<li>a help-system</li>
+<li>customised checks</li>
+<li>required roles/permissions</li>
+<li>user-ratelimiting</li>
+</ul>
+<p>The next chapters will dive into each of these aspects.</p>
+<a class="header" href="#todo-voice" id="todo-voice"><h1>TODO: Voice</h1></a>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#examples" id="examples"><h1>Examples</h1></a>
+<p>Sometimes, one line of code speaks more than thousand words.<br />
+This chapter entails following examples:</p>
+<ul>
+<li>Command argument processing [Args]</li>
+</ul>
+<a class="header" href="#todo-command-argument-processing" id="todo-command-argument-processing"><h1>TODO: Command Argument Processing</h1></a>
+<a class="header" href="#porting" id="porting"><h1>Porting</h1></a>
+<p>This chapter will guide you to port your Serenity-project from one to another
+version!<br />
+If something seems to miss, please inform us by opening an issue or simply visit our
+Discord-chat.</p>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#why-should-i-switch-to-v06" id="why-should-i-switch-to-v06"><h1>Why should I switch to v0.6</h1></a>
+<ul>
+<li>Rustls (default) and fixed OpenSSL-support</li>
+<li>Less RAM usage</li>
+<li>Proc-Macro Command Framework</li>
+<li>Nested Groups</li>
+<li>Unicode-Support for Commands</li>
+<li>No more global HTTP/Cache</li>
+<li>Voice on Windows</li>
+<li>Slow Mode, News Channel, Guild Boost-fields, ...</li>
+</ul>
+<p>The 0.6-series brings a lot of new changes, ranging from a brand new
+framework to many new internal dependencies. From now on we are using Rustls
+by default instead of OpenSSL.<br />
+Especially if you suffered from the outdated
+OpenSSL-struggle, you may take the opportunity and upgrade. Rustls supports most
+targets, if you need some exotic platform, like POWER9, 0.6 supports
+a fresh OpenSSL too.<br />
+One outstanding improvement is the new framework, instead of using
+macros to define your commands and then specifying its options on the
+configuration, we annotate functions with procedural macros.</p>
+<pre><pre class="playpen"><code class="language-rust ">
+# #![allow(unused_variables)]
+#fn main() {
+#[command]
+#[aliases(&quot;kitty&quot;, &quot;neko&quot;)]
+#[bucket = &quot;emoji&quot;]
+#[required_permissions(&quot;ADMINISTRATOR&quot;)]
+fn cat(ctx: &amp;mut Context, msg: &amp;Message) -&gt; CommandResult {
+    if let Err(why) = msg.channel_id.say(&amp;ctx, &quot;:cat:&quot;) {
+        println!(&quot;Error sending message: {:?}&quot;, why);
+    }
+
+    Ok(())
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 1: Proc-macro Command Example</span></p>
+<p>The book will guide you through the process.</p>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#lets-start-porting" id="lets-start-porting"><h1>Let's start porting!</h1></a>
+<p>We will take a look at the framework and all its lovely bits!</p>
+<p>First and foremost, Serenity utilises procedural macros hence the documentation for the framework shifted to its own crate: <a href="https://docs.rs/command_attr/0.1.4/command_attr/">command_attr</a>. This is a Rust limitation, as procedural macros cannot reside in the same crate.</p>
+<a class="header" href="#command-macro" id="command-macro"><h2>Command Macro</h2></a>
+<p>You may have commands defined like this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+command!(cat(_ctx, msg, _args) {
+    if let Err(why) = msg.channel_id.say(&quot;:cat:&quot;) {
+        println!(&quot;Error sending message: {:?}&quot;, why);
+    }
+});
+#}</code></pre></pre>
+<p><span class="caption">Listing 1: An old framework command.</span></p>
+<p>And they might have a configuration as here:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+.group(&quot;Emoji&quot;, |g| g
+    .prefixes(vec![&quot;emoji&quot;, &quot;em&quot;])
+    .desc(&quot;A group with commands providing an emoji as response.&quot;)
+    .default_cmd(bird)
+    .command(&quot;cat&quot;, |c| c
+        .desc(&quot;Sends an emoji with a cat.&quot;)
+        .batch_known_as(vec![&quot;kitty&quot;, &quot;neko&quot;])
+        .bucket(&quot;emoji&quot;)
+        .cmd(cat)
+        .required_permissions(Permissions::ADMINISTRATOR))
+    .command(&quot;dog&quot;, |c| c
+        .desc(&quot;Sends an emoji with a dog.&quot;)
+        .bucket(&quot;emoji&quot;)
+.cmd(dog)))
+#}</code></pre></pre>
+<p><span class="caption">Listing 2: An old framework configuration.</span></p>
+<p>Let's get rid of all this old cruft. Starting with your command-macro:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// To get these macros:
+use serenity::framework::standard::macros::{command, group};
+
+group!({
+    name: &quot;general&quot;,
+    options: {},
+    commands: [cat]
+});
+
+#[command]
+#[aliases(&quot;kitty&quot;, &quot;neko&quot;)]
+#[bucket = &quot;emoji&quot;]
+#[required_permissions(&quot;ADMINISTRATOR&quot;)]
+fn cat(ctx: &amp;mut Context, msg: &amp;Message) -&gt; CommandResult {
+    if let Err(why) = msg.channel_id.say(&amp;ctx, &quot;:cat:&quot;) {
+        println!(&quot;Error sending message: {:?}&quot;, why);
+    }
+
+    Ok(())
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 3: A group-macro and its command.</span></p>
+<p>In v0.6, we will no longer register groups and commands on the
+framework, but we register groups only. These groups will reference the commands. In v0.5, Serenity silently added one group containing all commands, the &quot;ungrouped&quot;-group, while v0.6 gives you the full control to do this yourself.</p>
+<p>The <code>group!</code>-macro creates a static group for us, to be precise, it creates an uppercase identifier: <code>{name}_GROUP</code>.
+Hereby note <code>{name}</code> is a placeholder  that will transform into the specified name via <code>name: &quot;general&quot;</code>, finally giving us <code>GENERAL_GROUP</code>.</p>
+<p>Adding this group to the framework is done by calling <code>group(&amp;GENERAL_GROUP)</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+StandardFramework::new()
+    .configure(|c| c
+        .with_whitespace(true)
+        .on_mention(Some(bot_id))
+        .prefix(&quot;~&quot;)
+    .group(&amp;GENERAL_GROUP)
+);
+#}</code></pre></pre>
+<p><span class="caption">Listing 4: A framework configuring a group.</span></p>
+<p>Nonetheless, this might impose a problem: If the group's name is outside of the allowed character range for Rust identifiers, what are we going to do?\</p>
+<p>TODO</p>
+<a class="header" href="#group-options" id="group-options"><h2>Group Options</h2></a>
+<p>As in listing 3, we define groups via the <code>group!</code>-command. The macro allows us to specify a group's settings.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+group!({
+    name: &quot;emoji&quot;,
+    options: {
+        prefixes: [&quot;emoji&quot;, &quot;em&quot;],
+        description: &quot;A group with commands providing an emoji as response.&quot;,
+        default_command: bird,
+    },
+    commands: [cat],
+    sub_groups: [],
+});
+#}</code></pre></pre>
+<p><span class="caption">Listing 5: A group with some options.</span></p>
+<p>The first option is <code>prefixes</code>, it sets valid prefixes before a command. In 1.5 we could use <code>emoji cat</code> or <code>em cat</code> and both will be accepted.</p>
+<p>There is a great variety of possible options exceeding the scope for this chaper, for further information read the <a href="porting/0.5-to-0.6/../../appendix/group-options.html">group command appendix</a>.</p>
+<a class="header" href="#help-command" id="help-command"><h2>Help Command</h2></a>
+<p>0.6's help-system works a bit differently than before. To declare a
+help-command, we need to annotate an extra step function with <code>#[help]</code>,
+just like we did with <code>#[command]</code>.</p>
+<p>First we will create a normal function that calls <code>with_embeds</code> or <code>plain</code>
+underneath. You can imagine it as a step before the actual dispatch happens the
+function. We need to do this because we cannot annotate the actual help-function
+via attributes as they are already defined within Serenity.
+A positive side-effect is the power to clone and mutate <code>HelpOptions</code> before we call the help-functionality.
+We could randomise a field or let it depend on <code>Context</code>'s data.</p>
+<p>The performant alternative to this would be to define our own <code>plain</code> or <code>with_embeds</code> and
+mutate <code>HelpOptions</code> in them. This saves us a clone but forces us to maintain
+the help-function from now on.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[help]
+#[individual_command_tip =
+&quot;Hello! こんにちは！Hola! Bonjour! 您好!\n\
+If you want more information about a specific command, just pass the command as argument.&quot;]
+#[command_not_found_text = &quot;Could not find: `{}`.&quot;]
+#[max_levenshtein_distance(3)]
+#[indention_prefix = &quot;+&quot;]
+#[lacking_permissions = &quot;Hide&quot;]
+#[lacking_role = &quot;Nothing&quot;]
+#[wrong_channel = &quot;Strike&quot;]
+fn my_help(
+    context: &amp;mut Context,
+    msg: &amp;Message,
+    args: Args,
+    help_options: &amp;'static HelpOptions,
+    groups: &amp;[&amp;'static CommandGroup],
+    owners: HashSet&lt;UserId, impl BuildHasher&gt;
+) -&gt; CommandResult {
+    help_commands::with_embeds(context, msg, args, help_options, groups, owners)
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 6: Function dispatching to help-function
+<code>with_embeds</code>.</span></p>
+<p>As with our commands, we define options via attributes. A new addition is
+<code>indention_prefix</code>, this provides visual aid and will indent a command based
+one its nest-level. The level increases for each time we create a sub-group.<br />
+Discord supports no real indenting, not even tabs or leading
+whitespaces. If a group has a sub-group, all the sub-group's items will be
+prefixed with the symbol we decided to use. Using an empty string will lead to
+no prefix.</p>
+<p>This is not everything though, the help-command can properly
+work with <code>owners</code> now too and even incorporate whether a Serenity user-check shall be run or not.</p>
+<a class="header" href="#dispatch" id="dispatch"><h2>Dispatch</h2></a>
+<p>If a user dispatches a command, it's important to note that Serenity's framework starts with the highest group and then proceeds to the sub-groups. That means, if the command is part of a sub-group, the user will need to pass all requirements of super or parent groups. As a consequence, if the first group requires admin permission, all of its commands and sub-groups with their commands will require the given permission too.<br />
+The help-system copies this behaviour.</p>
+<a class="header" href="#checks" id="checks"><h2>Checks</h2></a>
+<a class="header" href="#return-values" id="return-values"><h3>Return Values</h3></a>
+<p>Checks used to return a bool expressing success or failure.
+In spite of that, we never knew why a check failed and this has been improved in v0.6.
+Here is an example from v0.5:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn admin_check(_: &amp;mut Context, msg: &amp;Message, _: &amp;mut Args, _: &amp;CommandOptions) -&gt; bool {
+    if let Some(member) = msg.member() {
+
+        if let Ok(permissions) = member.permissions() {
+            return permissions.administrator();
+        }
+    }
+
+    false
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 7: Admin permission framework test as v0.5 check.</span></p>
+<p>Note that checking for admin-permission is considered redundant via checks, but they perfectly portray different nuances of potential failure.<br />
+Let's take a look how we would do this in v0.6:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[check]
+#[name = &quot;Admin&quot;]
+#[check_in_help(true)]
+#[display_in_help(true)]
+fn admin_check(ctx: &amp;mut Context, message: &amp;Message, _: &amp;mut Args, _: &amp;CommandOptions) -&gt; CheckResult {
+    if let Some(member) = message.member(&amp;ctx.cache) {
+
+        if let Ok(permissions) = member.permissions(&amp;ctx.cache) {
+            return permissions.administrator().into();
+        }
+    }
+
+    CheckResult::new_user(&quot;Please use this command within a guild.&quot;)
+}
+#}</code></pre></pre>
+<p><span class="caption">Listing 8: Admin permission framework test as v0.6 check.</span></p>
+<p>This allows us to describe what kind of failure we are dealing with.
+There are five ways to return from v0.6 checks.</p>
+<ul>
+<li>A simple bool, a bool will be converted into a <code>CheckResult</code> without a message attached, we simply need to call <code>into()</code> on it.</li>
+<li><code>CheckResult::Success</code>, to express success.</li>
+<li><code>CheckResult::new_log(&quot;&quot;)</code>, allowing us to describe a general logging case.</li>
+<li><code>CheckResult::new_user(&quot;&quot;)</code>, giving us the chance to send tips to the user on failure cause's reasoning.</li>
+<li><code>CheckResult::new_unknown()</code>, in case there is nothing to be said or known about the cause.</li>
+</ul>
+<p>Returning <code>CheckResult::new_unknown()</code> is also what happens when we call <code>false.into()</code>, as there is no information to be given.</p>
+<a class="header" href="#check-macro" id="check-macro"><h3>Check Macro</h3></a>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[check]
+#[name = &quot;Admin&quot;]
+#[check_in_help(true)]
+#[display_in_help(true)]
+#}</code></pre></pre>
+<p><span class="caption">Listing 9: Admin check's macros.</span></p>
+<p>Let's process this from top to bottom. First we get to gaze at the procedural macro to mark a function as a check. Make sure that the function's signature matches how Serenity defines the <a href="https://docs.rs/serenity/0.6/serenity/framework/standard/type.CheckFunction.html">CheckFunction</a>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+type CheckFunction = fn(_: &amp;mut Context, _: &amp;Message, _: &amp;mut Args, _: &amp;CommandOptions) -&gt; CheckResult;
+#}</code></pre></pre>
+<p><span class="caption">Listing 10: Serenity's <a href="https://docs.rs/serenity/0.6/serenity/framework/standard/type.CheckFunction.html">CheckFunction</a>.</span></p>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#httpcache" id="httpcache"><h1>Http/Cache</h1></a>
+<p>You might have read that we longer have a global HTTP-client
+or cache. This is a fundamental design change in Serenity.<br />
+Functions used to magically pull in the global HTTP-client and looked like this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let _ = message.channel_id.say(&quot;Ferris!&quot;);
+#}</code></pre></pre>
+<p><span class="caption">Listing 1: Methods using global HTTP.</span></p>
+<p>Whilst very comfortable, we came to the conclusion to free our design from singletons. Hence, every method that once used to utilise either
+the cache or the HTTP-client will from now on expect the resources to be
+passed.</p>
+<p>The methods will expect one of the following as first argument: <code>impl AsRef&lt;Http&gt;</code>, <code>impl AsRef&lt;CacheRwLock&gt;</code>, or <code>impl CacheHttp</code>.</p>
+<a class="header" href="#impl-asrefhttp" id="impl-asrefhttp"><h2><code>impl AsRef&lt;Http&gt;</code></h2></a>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    #[cfg(feature = &quot;http&quot;)]
+    #[inline]
+    pub fn create_permission(&amp;self, http: impl AsRef&lt;Http&gt;, target: &amp;PermissionOverwrite) -&gt; Result&lt;()&gt; {
+        self.id.create_permission(&amp;http, target)
+    }
+#}</code></pre></pre>
+<p><span class="caption">Listing 2: <code>ChannelCategory</code>'s method requiring an HTTP-client.</span></p>
+<p>A type able turning itself into a reference to an <code>Http</code>.
+Types qualifying are <code>Arc&lt;Http&gt;</code>, being the <code>http</code>-field on <code>Context</code> and <code>Context</code> itself.</p>
+<a class="header" href="#impl-asrefcacherwlock" id="impl-asrefcacherwlock"><h2><code>impl AsRef&lt;CacheRwLock&gt;</code></h2></a>
+<p>We cannot not implement <code>AsRef</code> for <code>RwLock&lt;Cache&gt;</code>. <code>CacheRwLock</code> automatically
+dereferences into <code>Cache</code>, offering the same usability as with working on the actual
+type.</p>
+<a class="header" href="#impl-cachehttp" id="impl-cachehttp"><h2><code>impl CacheHttp</code></h2></a>
+<p>Some methods can utilise the cache if enabled. This type allows to express both types may be required. The trait is implemented for <code>Context</code>, but also for <code>(CacheRwLock, Http)</code>. The tuple allows us to use pass the combination of both outside places with a passed <code>Context</code>.
+You may wonder, why is this type not <code>AsRef&lt;CacheHttp&gt;</code>?
+It primarily exists to express <code>CacheRwLock, Http</code> outside of the scope of Serenity functions, however the tuple could not turn into a reference.</p>
+<a class="header" href="#troubleshooting" id="troubleshooting"><h1>Troubleshooting</h1></a>
+<p>Confused about a weird error? This chapter might cure your headache!
+May it be a question or issue, you may find a solution here! If that's not the case, feel free to open an issue or ask on our Discord-chat; your problem might be added here!</p>
+<a class="header" href="#expected-a-token-in-the-environment" id="expected-a-token-in-the-environment"><h1>Expected a token in the environment</h1></a>
+<a class="header" href="#what-is-an-environment-variable" id="what-is-an-environment-variable"><h1>What is an environment variable?</h1></a>
+<p>An environment-variable is a key with a value that can be declared by the user and accessed by applications.
+You may have heard of JAVA_HOME, RUST_LOG, ..., these provide paths in order to make applications use files in them.</p>
+<p>The examples in Serenity will expect an environment variable named DISCORD_TOKEN with the value of your bot's token.</p>
+<a class="header" href="#where-do-i-find-the-token" id="where-do-i-find-the-token"><h1>Where do I find the token?</h1></a>
+<a class="header" href="#how-do-i-set-it" id="how-do-i-set-it"><h1>How do I set it?</h1></a>
+<p>Depending on your operating system, there will be a variety of ways to set environment variables.</p>
+<a class="header" href="#windows" id="windows"><h2>Windows</h2></a>
+<p>There are three possible solutions for us: Setting it via the GUI, via PowerShell, or an env-file.</p>
+<a class="header" href="#gui" id="gui"><h3>GUI</h3></a>
+<a class="header" href="#powershell" id="powershell"><h3>PowerShell</h3></a>
+<a class="header" href="#env-file" id="env-file"><h3>Env-File</h3></a>
+<a class="header" href="#linux" id="linux"><h2>Linux</h2></a>
+<a class="header" href="#macos" id="macos"><h2>MacOS</h2></a>
+<a class="header" href="#invalid-permission" id="invalid-permission"><h1>Invalid permission</h1></a>
+<p>Discord bots may require certain permissions to perform actions.
+If you try to assign a role to you, make sure the bot can actually affect your rank in the first place.</p>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#appendix" id="appendix"><h1>Appendix</h1></a>
+<p>This chapter contains excurses to specific topics adding further details.</p>
+<a class="header" href="#todo-command-options" id="todo-command-options"><h1>TODO: Command Options</h1></a>
+<p><link rel="stylesheet" href="../../../css/span.css"></p>
+<a class="header" href="#group-options-1" id="group-options-1"><h1>Group Options</h1></a>
+<a class="header" href="#about-3" id="about-3"><h2>About</h2></a>
+<p>In this chapter, we will list all possible options and explain them.</p>
+<p>Here is a group macro for reference:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+group!({
+    name: &quot;general&quot;,
+    options: {
+        // Options are here:
+        owners_only: true,
+        only_in: &quot;dm&quot;,
+        checks: [admin],
+    },
+    commands: [cat]
+});
+#}</code></pre></pre>
+<p><span class="caption">Listing 1.1: A group macro example.</span></p>
+<p>Group options are defined within the <code>options</code>-block and as shown in the listing.</p>
+<a class="header" href="#legend" id="legend"><h2>Legend</h2></a>
+<p><strong>Accepts</strong> describes what inputs are being accepted by the macro.<br />
+<strong>Default</strong> shows what value the option will have if not specified by the user.<br />
+<strong>Effect</strong> elaborates on what the option will do depending on the input.</p>
+<a class="header" href="#only_in" id="only_in"><h2>only_in</h2></a>
+<p><strong>Accepts</strong>: &quot;dm&quot;, &quot;guild&quot;<br />
+<strong>Default</strong>: Permits both.<br />
+<strong>Effect</strong>: Limits a group to either direct messages or guilds.</p>
+<a class="header" href="#owners_only" id="owners_only"><h2>owners_only</h2></a>
+<p><strong>Accepts</strong>: true, false<br />
+<strong>Default</strong>: false<br />
+<strong>Effect</strong>: Sets whether a command can be used by bot-owners only. A bot-owner must be specified on the framework-configuration.</p>
+<a class="header" href="#owner_privilege" id="owner_privilege"><h2>owner_privilege</h2></a>
+<p><strong>Accepts</strong>: true, false
+<strong>Default</strong>: false
+<strong>Effect</strong>: whether bot-owners bypass all command-checks.</p>
+<a class="header" href="#help_available" id="help_available"><h2>help_available</h2></a>
+<p><strong>Accepts</strong>: true, false
+<strong>Default</strong>: true
+<strong>Effect</strong>: whether a command will be listed in
+the help-system.</p>
+<a class="header" href="#allowed_roles" id="allowed_roles"><h2>allowed_roles</h2></a>
+<p><strong>Accepts</strong>: [&amp;str] as in <code>[&quot;ferris-role&quot;, &quot;crab-fan&quot;]</code>,
+<strong>Default</strong>: empty
+<strong>Effect</strong>: The group will be exclusive to members with at least one allowed role.</p>
+<a class="header" href="#help_available-1" id="help_available-1"><h2>help_available</h2></a>
+<p><strong>Accepts</strong>: true, false
+<strong>Default</strong>: true
+<strong>Effect</strong>: Whether the group will work in the help-system.</p>
+<a class="header" href="#required_permissions" id="required_permissions"><h2>required_permissions</h2></a>
+<p><strong>Accepts</strong>:
+<strong>Default</strong>: empty</p>
+<a class="header" href="#todo-help-options" id="todo-help-options"><h1>TODO: Help Options</h1></a>
+<a class="header" href="#glossary" id="glossary"><h1>Glossary</h1></a>
+<p>Explanations of terms used within the book.</p>
+<a class="header" href="#cache-1" id="cache-1"><h2>Cache</h2></a>
+<p>The <a href="https://docs.rs/serenity/0.6/serenity/cache/struct.Cache.html">Cache</a> saves received information from the Discord-API and enables us to access it, avoiding API-requests. It does not cache messages by default.</p>
+<p>To learn more about the cache, read the <a href="glossary/../features/context/cache.html">Cache-chapter</a>.</p>
+<a class="header" href="#rate-limit" id="rate-limit"><h2>Rate Limit</h2></a>
+<p>Every API-interaction has a limited amount of usages within a certain time frame. These limitations are dynamically sent as response after issuing an API-request.</p>
+<a class="header" href="#cacherwlock-1" id="cacherwlock-1"><h2>CacheRwLock</h2></a>
+<p>A newtype wrapping around an inner cache to be allowed implementing <a href="https://doc.rust-lang.org/std/convert/trait.AsRef.html">AsRef</a> on parking_lot's RwLock<Cache>.
+It automatically dereferences to RwLock<Cache> and thus behaving as such.</p>
+<a class="header" href="#http-client" id="http-client"><h2>HTTP-Client</h2></a>
+<p>Communicates with Discord's REST-API.</p>
+<a class="header" href="#rest-api" id="rest-api"><h2>REST-API</h2></a>
+<p>The bot can issue requests via this to e.g. send messages. An error can occur when the request lacks permission or sent JSON is malformed. Serenity makes sure the latter won't happen, if it does, it's a bug.</p>
+<a class="header" href="#gateway" id="gateway"><h2>Gateway</h2></a>
+<p>A bot connects to Discord via shards to the gateway. Bots receive their events from this.</p>
+<a class="header" href="#shard" id="shard"><h2>Shard</h2></a>
+<p>A shard is a connection to Discord. There is a recommended/mandatory amount of shards dictated by Discord based on how many guilds your bot is serving (2,500 guilds per shard).
+Each connection handles events and commands for its assigned guilds.</p>
+<p>To learn more about sharding, read Serenity's <a href="https://docs.rs/serenity/0.6/serenity/gateway/index.html#sharding">sharding-documentation</a>.</p>
+<a class="header" href="#sharding" id="sharding"><h2>Sharding</h2></a>
+<p>The process of composing the Discord bot's connection into multiple shards. Serenity automatically shards by default, this can be changed.</p>
+<p>To learn more about sharding, read Serenity's <a href="https://docs.rs/serenity/0.6/serenity/gateway/index.html#sharding">sharding-documentation</a>.</p>
+<a class="header" href="#command-framework" id="command-framework"><h2>Command Framework</h2></a>
+<p>There is a <a href="https://docs.rs/serenity/0.6/serenity/framework/trait.Framework.html">Framework</a>-trait, it provides the basic concept on how a utility can be built around the Discord API.</p>
+<a class="header" href="#standard-framework" id="standard-framework"><h2>Standard Framework</h2></a>
+<p>Serenity's own provided implementation to utilise the Discord API.
+It takes receiced Discord messages, parses them, and acts accordingly.
+Users can define the actions done by the framework. Commands can be defined or dispatch failure handled.</p>
+<a class="header" href="#events" id="events"><h2>Events</h2></a>
+<p>Describes special circumstances defined by either Discord or Serenity.
+Discord's circumstances cause data to be sent. These contain information about what or who did something.
+A few examples are: A member joined a guild, a message has been sent or deleted, a shard has connected, ...\</p>
+<a class="header" href="#guild" id="guild"><h2>Guild</h2></a>
+<p>Often called servers. Discord refers to them as guilds. The technical difference is that a hardware server potentially serves multiple guilds, turning guild into another word for a community.</p>
+<a class="header" href="#member" id="member"><h2>Member</h2></a>
+<p>A Discord user who is part of a guild is considered a member of given guild.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
