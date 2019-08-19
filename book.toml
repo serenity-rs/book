@@ -1,0 +1,5 @@
+[book]
+authors = ["alex", "Lakelezz"]
+multilingual = false
+src = "src"
+title = "serenity"

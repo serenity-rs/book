@@ -1,0 +1,16 @@
+span.caption {
+    width: 100%;
+    text-align: center;
+}
+
+span.info {
+    display: block;
+    padding: 10px;
+    border: 1px solid #f74c00;
+    font-weight: normal;
+}
+
+span.block {
+    display: flex;
+    align-items:center;
+}
