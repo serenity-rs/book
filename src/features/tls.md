@@ -3,7 +3,7 @@
 # Transport Security Layer (TLS)
 
 The communication with Discord must be encrypted via TLS. Serenity supports two ways to get this job done and we need to pick *one*.
-If we forget the pick one, Serenity will spit out a compile-error.
+If we forget to pick one, Serenity will spit out a compile-error.
 
 The `rustls_backend` is our new TLS implementation in pure Rust, but it does not
 support platforms like POWER9 yet.\
